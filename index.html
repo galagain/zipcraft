@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZipCraft — Modrinth Pack Builder</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>ZipCraft <span class="pill">Modrinth Pack Builder</span></h1>
+      <p class="lead">Avant de commencer :
+      <ol style="margin:8px 0 0 18px; padding:0">
+        <li>Téléchargez et installez <a href="https://fabricmc.net/use/installer/" target="_blank"
+            rel="noopener">l’installateur Fabric</a> pour la version de Minecraft voulue.</li>
+        <li>Relancez le launcher Minecraft et sélectionnez le <b>profil Fabric</b> correspondant.</li>
+        <li>Ici, générez le <b>ZIP de mods</b> puis placez son contenu dans <code>%APPDATA%\.minecraft\mods</code> (sous
+          Windows, <code>%APPDATA%</code> pointe sur <code>Roaming</code>).</li>
+      </ol>
+      </p>
+
+      <label for="mods">Liens des mods (un par ligne)</label>
+      <textarea id="mods">
+https://modrinth.com/mod/dynamic-fps — réduit l’usage CPU/GPU en arrière‑plan
+https://modrinth.com/mod/entityculling — masque les entités/tiles non visibles
+https://modrinth.com/mod/fabric-api — bibliothèque requise par beaucoup de mods
+https://modrinth.com/mod/ferrite-core — optimisations mémoire (chunks/objets)
+https://modrinth.com/mod/immediatelyfast — accélère l’UI et plusieurs écrans
+https://modrinth.com/mod/lithium — optimisations logiques et serveur
+https://modrinth.com/mod/sodium — gros boost de rendu (client)
+https://modrinth.com/mod/nvidium — boost rendu pour GPU NVIDIA (fork Sodium)
+https://modrinth.com/mod/sodium-extra — options supplémentaires pour Sodium
+https://modrinth.com/mod/sodium-fullbright — plein éclairage (utilitaire)
+      </textarea>
+
+      <div class="row3" style="margin-top:10px">
+        <div>
+          <label for="mcVersion">Version Minecraft</label>
+          <input id="mcVersion" type="text" placeholder="ex: 1.21.8" value="1.21.8" />
+        </div>
+        <div>
+          <label for="loader">Loader</label>
+          <select id="loader">
+            <option value="fabric" selected>fabric</option>
+            <option value="forge">forge</option>
+            <option value="quilt">quilt</option>
+            <option value="neoforge">neoforge</option>
+          </select>
+        </div>
+        <div>
+          <label for="channel">Canal</label>
+          <select id="channel">
+            <option value="release" selected>release</option>
+            <option value="beta">beta</option>
+            <option value="alpha">alpha</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-actions" style="margin-top:14px">
+        <button id="zipAll">Créer un ZIP</button>
+        <button id="buildLinks" class="secondary">Générer les liens #download</button>
+        <button id="runTests" class="secondary">Exécuter les tests</button>
+        <button id="clear" class="secondary">Vider la liste</button>
+      </div>
+
+      <div class="mods" id="results"></div>
+
+      <div class="tests" id="tests">
+        <div style="font-weight:700; margin-bottom:8px">Tests unitaires rapides</div>
+        <p class="muted">Cliquez sur <span class="kbd">Exécuter les tests</span> pour vérifier les fonctions clés sans
+          appeler l’API.</p>
+        <div id="testResults" class="muted">(en attente)</div>
+      </div>
+
+      <p class="tips">Une fois le ZIP téléchargé, placez manuellement les fichiers dans le dossier
+        <code>%APPDATA%\\.minecraft\\mods</code> (sous Windows, %APPDATA% ouvre directement <code>Roaming</code>). Sous
+        macOS, utilisez <code>~/Library/Application Support/minecraft/mods</code>, et sous Linux
+        <code>~/.minecraft/mods</code>.</p>
+      <div class="footer">ZipCraft — utilise l’API publique de Modrinth (<code>api.modrinth.com/v2</code>).</div>
+    </div>
+  </div>
+
+  <!-- JSZip pour la création d'archives côté client -->
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

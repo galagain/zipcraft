@@ -1,0 +1,226 @@
+/* =========================
+   Variables & Reset léger
+   ========================= */
+:root {
+    --bg: #0b0f14;
+    --card: #121821;
+    --muted: #94a3b8;
+    --text: #e5eef7;
+    --accent: #22c55e;
+    --danger: #ef4444;
+    --border: #1f2937;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================
+   Base / Typo
+   ========================= */
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Ubuntu, Arial, sans-serif;
+    background: linear-gradient(180deg, #0b0f14, #0f172a);
+    color: var(--text);
+}
+
+h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    margin: 0 0 8px;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: #8bffd1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   Mise en page
+   ========================= */
+.wrap {
+    max-width: 980px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+
+.row3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+/* =========================
+   Formulaires
+   ========================= */
+label {
+    display: block;
+    font-weight: 600;
+    margin: 14px 0 8px;
+}
+
+textarea,
+input,
+select {
+    width: 100%;
+    background: #0b1220;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    outline: none;
+}
+
+textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+/* =========================
+   Boutons
+   ========================= */
+button {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-weight: 700;
+    background: var(--accent);
+    color: #08200f;
+    box-shadow: 0 6px 20px rgba(34, 197, 94, .35);
+}
+
+button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+button.secondary {
+    background: #1f2937;
+    color: var(--text);
+}
+
+.grid-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+/* =========================
+   Blocs / Listes
+   ========================= */
+.lead {
+    color: var(--muted);
+    margin: 0 0 18px;
+}
+
+.mods {
+    margin-top: 18px;
+    display: grid;
+    gap: 10px;
+}
+
+.mod {
+    background: #0b1220;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+/* =========================
+   Utilitaires
+   ========================= */
+.pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #0b1220;
+    margin-left: 8px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.status {
+    font-size: 14px;
+}
+
+.ok {
+    color: var(--accent);
+}
+
+.err {
+    color: var(--danger);
+}
+
+/* =========================
+   Aide / Pied de page
+   ========================= */
+.tips {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.footer {
+    margin-top: 22px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* =========================
+   Zone de tests
+   ========================= */
+.tests {
+    margin-top: 24px;
+    background: #0b1220;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+.kbd {
+    display: inline-block;
+    padding: 2px 6px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #0b1220;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 12px;
+}
+
+/* =========================
+   Responsive léger
+   ========================= */
+@media (max-width: 720px) {
+    .row3 {
+        grid-template-columns: 1fr;
+    }
+}

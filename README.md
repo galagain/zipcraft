@@ -3,6 +3,8 @@
 **v1.0.0** — Génère un **ZIP** de mods à partir d’URLs **Modrinth**, filtrés par version de Minecraft et loader.  
 Pensé pour **Fabric** : le site rappelle d’installer Fabric et où placer les fichiers.
 
+Visible sur : [https://zipcraft.galagain.com/](https://zipcraft.galagain.com/)
+
 ## ✨ Fonctionnalités
 - Saisie d’URLs Modrinth (une par ligne) + commentaire facultatif après l’URL
 - Sélection **version Minecraft** + **loader** (fabric/forge/quilt/neoforge)
